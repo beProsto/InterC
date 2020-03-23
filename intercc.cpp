@@ -77,8 +77,8 @@ int main(int argc, char** argv) {
 			}
 			else if(keys[0] == "ADD") {
 				variables.find(keys[1])->second = 
-				(isNumber(keys[2][0]) ? std::stoi(keys[2]) : variables.find(keys[2])->second) + 
-				(isNumber(keys[3][0]) ? std::stoi(keys[3]) : variables.find(keys[3])->second);
+				(isNumber(keys[2]) ? std::stoi(keys[2]) : variables.find(keys[2])->second) + 
+				(isNumber(keys[3]) ? std::stoi(keys[3]) : variables.find(keys[3])->second);
 			}
 			else if(keys[0] == "SUB") {
 				variables.find(keys[1])->second = 
