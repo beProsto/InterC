@@ -7,7 +7,7 @@
 - `NEW`
 	- Takes in 2 arguments
 		- First argument is the name of the variable we want to create
-		- Second argument is the type of the variable (for now isn't supported - every variable is of INT type)
+		- Second argument is the type of the variable (for now only pointer are not supported)
 			- Variable types:
 				- `CHAR` - is an 8 bit signed integer
 				- `UCHAR` - is an 8 bit unsigned integer
@@ -22,7 +22,7 @@
 - `DEL`
 	- Takes in 1 argument
 		- The argument specifies the name of the variable that should be deleted
-2) Calculations:
+1) Calculations:
 - `SET`
 	- Takes in 2 arguments
 		- First argument specifies where the second argument's value will be stored
@@ -30,27 +30,27 @@
 - `ADD`
 	- Takes in 3 arguments
 		- First argument specifies where the operation's returned value will be stored
-		- Second argument is the fist parameter of the addition 
+		- Second argument is the first parameter of the addition 
 		- Third argument is the second parameter of the addition 
 - `SUB`
 	- Takes in 3 arguments
 		- First argument specifies where the operation's returned value will be stored
-		- Second argument is the fist parameter of the substraction 
+		- Second argument is the first parameter of the substraction 
 		- Third argument is the second parameter of the substraction 
 - `MUL`
 	- Takes in 3 arguments
 		- First argument specifies where the operation's returned value will be stored
-		- Second argument is the fist parameter of the multiplication 
+		- Second argument is the first parameter of the multiplication 
 		- Third argument is the second parameter of the multiplication 
 - `DIV`
 	- Takes in 3 arguments
 		- First argument specifies where the operation's returned value will be stored
-		- Second argument is the fist parameter of the division 
+		- Second argument is the first parameter of the division 
 		- Third argument is the second parameter of the division 
 - `MOD`
 	- Takes in 3 arguments
 		- First argument specifies where the operation's returned value will be stored
-		- Second argument is the fist parameter of the modulo 
+		- Second argument is the first parameter of the modulo 
 		- Third argument is the second parameter of the modulo 
 3) Input/Output:
 - `PRINT`
