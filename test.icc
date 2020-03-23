@@ -1,4 +1,4 @@
-NEW my_variable SHORT ;
+NEW my_variable UMAX ;
 
 ADD my_variable my_variable 1 ;
 PRINT my_variable ;

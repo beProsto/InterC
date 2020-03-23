@@ -15,7 +15,7 @@ enum Types {
 };
 
 bool isNumber(char _c) {
-	return _c == '0' || _c == '1' || _c == '2' || _c == '3' || _c == '4' || _c == '5' || _c == '6' || _c == '7' || _c == '8' || _c == '9' || _c == '-';
+	return (_c >= '0' && _c <= '9') || _c == '-';
 }
 bool isNumber(const std::string& _s) {
 	return isNumber(_s[0]);
