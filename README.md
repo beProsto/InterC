@@ -4,4 +4,5 @@
 
 - To compile the InterCC interpreter, simply compile `main.cpp` using C++17
     - `g++ main.cpp -o intercc -std=c++17`
-
+- To interpret the InterCC program, pass a path to it as an argument while running the interpreter
+    - `./interc "test.icc"`
