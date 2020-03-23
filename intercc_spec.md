@@ -22,7 +22,7 @@
 - `DEL`
 	- Takes in 1 argument
 		- The argument specifies the name of the variable that should be deleted
-1) Calculations:
+2) Calculations:
 - `SET`
 	- Takes in 2 arguments
 		- First argument specifies where the second argument's value will be stored

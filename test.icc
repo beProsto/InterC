@@ -1,9 +1,7 @@
-NEW my_variable INT ;
+NEW my_variable SHORT ;
 
-SET my_variable 12 ;
+ADD my_variable my_variable 1 ;
 PRINT my_variable ;
-
-ADD my_variable my_variable 2 ;
-PRINT my_variable ;
+GOTO 2 ;
 
 DEL my_variable ;
