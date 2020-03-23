@@ -1,0 +1,9 @@
+NEW my_variable ;
+
+SET my_variable 10 ;
+PRINT my_variable ; 
+
+ADD my_variable my_variable 2 ; 
+PRINT my_variable ;
+
+DEL my_variable ;
