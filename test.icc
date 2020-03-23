@@ -2,6 +2,6 @@ NEW my_variable SHORT ;
 
 ADD my_variable my_variable 1 ;
 PRINT my_variable ;
-GOTO 2 ;
+GOTO 1 ;
 
 DEL my_variable ;
