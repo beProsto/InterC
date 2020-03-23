@@ -89,6 +89,14 @@ bool mathAutomator(std::map<std::string, Variable> &variables, std::vector<std::
 				mathAutomator_varCheck(it2, a2, 3, operationText, Third, unsigned);
 
 				mathAutomator_switch(unsigned);
+			} else {
+				signed long long a1;
+				signed long long a2;
+
+				mathAutomator_varCheck(it1, a1, 2, operationText, Second, signed);
+				mathAutomator_varCheck(it2, a2, 3, operationText, Third, signed);
+
+				mathAutomator_switch(signed);
 			}
 		} else {
 			std::cerr << "ERROR["+ operationText +"]: Destination is not a number type" << std::endl;
