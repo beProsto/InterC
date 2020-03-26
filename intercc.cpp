@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include <cmath>
+#include "imap.hpp"
 
 enum Types {
 	CHAR = 0,
@@ -41,7 +42,7 @@ struct Variable {
 	}
 
 #define mathAutomator_varCheck(iterator, dest, keynum, operation, count, ...) \
-	if(iterator != variables.end()) { \
+	if(iterator != variables.EndPtr()) { \
 		Variable s = variables[keys[keynum]];\
 		if(s.type == Types::INT || s.type == Types::SHORT || s.type == Types::MAX) {\
 			dest = *((__VA_ARGS__ long long*) s.value);\
@@ -74,11 +75,11 @@ struct Variable {
 			*((__VA_ARGS__ long long*) dest.value) = a1 % a2;\
 			break;\
 	}
-bool mathAutomator(std::map<std::string, Variable> &variables, std::vector<std::string> keys, int operation, std::string operationText) {
-	std::map<std::string, Variable>::iterator it = variables.find(keys[1]);
-	std::map<std::string, Variable>::iterator it1 = variables.find(keys[2]);
-	std::map<std::string, Variable>::iterator it2 = variables.find(keys[3]);
-	if(it != variables.end()) {
+bool mathAutomator(InterC::IMap<std::string, Variable> &variables, std::vector<std::string> keys, int operation, std::string operationText) {
+	std::pair<std::string, Variable>* it = variables.Find(keys[1]);
+	std::pair<std::string, Variable>* it1 = variables.Find(keys[2]);
+	std::pair<std::string, Variable>* it2 = variables.Find(keys[3]);
+	if(it != variables.EndPtr()) {
 		Variable dest = variables[keys[1]];
 		if(dest.type == Types::INT || dest.type == Types::SHORT || dest.type == Types::MAX) {
 			if(dest.isUnsigned) {
@@ -149,7 +150,7 @@ int main(int argc, char** argv) {
 		}
 	}
 
-	std::map<std::string, Variable> variables_new;
+	InterC::IMap<std::string, Variable> variables_new;
 
 	for(int i = 0; i < progKeys.size(); i++) {
 		std::vector<std::string>& keys = progKeys[i];
@@ -181,18 +182,18 @@ int main(int argc, char** argv) {
 			checkType(MAX, long long);
 		}
 		else if(keys[0] == "DEL") {
-			std::map<std::string, Variable>::iterator it = variables_new.find(keys[1]);
-			if(it != variables_new.end()) {
+			std::pair<std::string, Variable>* it = variables_new.Find(keys[1]);
+			if(it != variables_new.EndPtr()) {
 				delete variables_new[keys[1]].value;
-				variables_new.erase(it);
+				variables_new.Erase(it);
 			} else {
 				std::cerr << "ERROR[DEL]: Couldn't delete desired variable!" << std::endl;
 				return 1;
 			}
 		}
 		else if(keys[0] == "SET") {
-			std::map<std::string, Variable>::iterator it = variables_new.find(keys[1]);
-			if(it != variables_new.end()) {
+			std::pair<std::string, Variable>* it = variables_new.Find(keys[1]);
+			if(it != variables_new.EndPtr()) {
 				Variable var = variables_new[keys[1]];
 				if(isNumber(keys[2])) {
 					if(var.type == Types::INT || var.type == Types::SHORT || var.type == Types::MAX) {
@@ -233,8 +234,8 @@ int main(int argc, char** argv) {
 				if(isNumber(keys[i])) {
 					std::cout << keys[i] << " ";
 				} else {
-					std::map<std::string, Variable>::iterator it = variables_new.find(keys[1]);
-					if(it != variables_new.end()) {
+					std::pair<std::string, Variable>* it = variables_new.Find(keys[1]);
+					if(it != variables_new.EndPtr()) {
 						Variable var = variables_new[keys[i]];
 						if(var.type == Types::INT || var.type == Types::SHORT || var.type == Types::MAX) {
 							if(var.isUnsigned) {
